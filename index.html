@@ -69,43 +69,6 @@ src="https://www.facebook.com/tr?id=853072092791218&ev=PageView&noscript=1"
     
   </head>
   <body>
-
-<script>
-        function work() {
-    function getParams() {
-      let t = '';
-      const e = window.top.location.href;
-      const r = new URL(e);
-      if (r != null) {
-        const a = r.searchParams.get('utm_source');
-        const n = r.searchParams.get('utm_medium');
-        const o = r.searchParams.get('utm_campaign');
-        const m = r.searchParams.get('utm_term');
-        const c = r.searchParams.get('utm_content');
-        const w = r.searchParams.get('xcod');
-        e.indexOf('?') !== -1 &&
-          (t = `&sck=${a}|${n}|${o}|${m}|${c}&xcod=${w}`),
-          console.log(t);
-      }
-      return t;
-    }
-    !(function () {
-      const t = new URLSearchParams(window.location.search);
-      t.toString() &&
-        document.querySelectorAll('a').forEach((e) => {
-          e.href.indexOf('?') === -1
-            ? (e.href += `?${t.toString()}${getParams()}`)
-            : (e.href += `&${t.toString()}${getParams()}`);
-        });
-    })();
-  }
-
-  if (document.readyState === 'complete') {
-    work();
-  } else {
-    window.addEventListener('load', work);
-  }
-</script>
     
     <!-- altera o tamanho do videos py-6 col-lg-10 -->
     <header class="py-8">
@@ -580,5 +543,43 @@ Deixa a boca muito seca no começo, mas realmente as bactérias não sobrevivem,
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="./assets/js/com.js"></script>
+
+<script>
+        function work() {
+    function getParams() {
+      let t = '';
+      const e = window.top.location.href;
+      const r = new URL(e);
+      if (r != null) {
+        const a = r.searchParams.get('utm_source');
+        const n = r.searchParams.get('utm_medium');
+        const o = r.searchParams.get('utm_campaign');
+        const m = r.searchParams.get('utm_term');
+        const c = r.searchParams.get('utm_content');
+        const w = r.searchParams.get('xcod');
+        e.indexOf('?') !== -1 &&
+          (t = `&sck=${a}|${n}|${o}|${m}|${c}&xcod=${w}`),
+          console.log(t);
+      }
+      return t;
+    }
+    !(function () {
+      const t = new URLSearchParams(window.location.search);
+      t.toString() &&
+        document.querySelectorAll('a').forEach((e) => {
+          e.href.indexOf('?') === -1
+            ? (e.href += `?${t.toString()}${getParams()}`)
+            : (e.href += `&${t.toString()}${getParams()}`);
+        });
+    })();
+  }
+
+  if (document.readyState === 'complete') {
+    work();
+  } else {
+    window.addEventListener('load', work);
+  }
+</script>
+          
   </body>
 </html>
