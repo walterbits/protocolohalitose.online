@@ -33,42 +33,6 @@
   updateViewerCount();
 </script>
   
-<script>
-        function work() {
-    function getParams() {
-      let t = '';
-      const e = window.top.location.href;
-      const r = new URL(e);
-      if (r != null) {
-        const a = r.searchParams.get('utm_source');
-        const n = r.searchParams.get('utm_medium');
-        const o = r.searchParams.get('utm_campaign');
-        const m = r.searchParams.get('utm_term');
-        const c = r.searchParams.get('utm_content');
-        const w = r.searchParams.get('xcod');
-        e.indexOf('?') !== -1 &&
-          (t = `&sck=${a}|${n}|${o}|${m}|${c}&xcod=${w}`),
-          console.log(t);
-      }
-      return t;
-    }
-    !(function () {
-      const t = new URLSearchParams(window.location.search);
-      t.toString() &&
-        document.querySelectorAll('a').forEach((e) => {
-          e.href.indexOf('?') === -1
-            ? (e.href += `?${t.toString()}${getParams()}`)
-            : (e.href += `&${t.toString()}${getParams()}`);
-        });
-    })();
-  }
-
-  if (document.readyState === 'complete') {
-    work();
-  } else {
-    window.addEventListener('load', work);
-  }
-</script>
 
     <!-- Título da Página -->
     <title>Adeus Halitose</title>
@@ -105,6 +69,44 @@ src="https://www.facebook.com/tr?id=853072092791218&ev=PageView&noscript=1"
     
   </head>
   <body>
+
+<script>
+        function work() {
+    function getParams() {
+      let t = '';
+      const e = window.top.location.href;
+      const r = new URL(e);
+      if (r != null) {
+        const a = r.searchParams.get('utm_source');
+        const n = r.searchParams.get('utm_medium');
+        const o = r.searchParams.get('utm_campaign');
+        const m = r.searchParams.get('utm_term');
+        const c = r.searchParams.get('utm_content');
+        const w = r.searchParams.get('xcod');
+        e.indexOf('?') !== -1 &&
+          (t = `&sck=${a}|${n}|${o}|${m}|${c}&xcod=${w}`),
+          console.log(t);
+      }
+      return t;
+    }
+    !(function () {
+      const t = new URLSearchParams(window.location.search);
+      t.toString() &&
+        document.querySelectorAll('a').forEach((e) => {
+          e.href.indexOf('?') === -1
+            ? (e.href += `?${t.toString()}${getParams()}`)
+            : (e.href += `&${t.toString()}${getParams()}`);
+        });
+    })();
+  }
+
+  if (document.readyState === 'complete') {
+    work();
+  } else {
+    window.addEventListener('load', work);
+  }
+</script>
+    
     <!-- altera o tamanho do videos py-6 col-lg-10 -->
     <header class="py-8">
       <div class="container">
