@@ -33,16 +33,41 @@
   updateViewerCount();
 </script>
   
-  <script>
-    window.onload = function () {
-        var links = document.getElementsByTagName("a");
-        for (var i = 0, n = links.length; i < n; i++) {
-            var href = links[i].href.trim() +
-                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
-                    document.location.search.replace('?', '').toString();
-            links[i].href = href;
-        }
+<script>
+        function work() {
+    function getParams() {
+      let t = '';
+      const e = window.top.location.href;
+      const r = new URL(e);
+      if (r != null) {
+        const a = r.searchParams.get('utm_source');
+        const n = r.searchParams.get('utm_medium');
+        const o = r.searchParams.get('utm_campaign');
+        const m = r.searchParams.get('utm_term');
+        const c = r.searchParams.get('utm_content');
+        const w = r.searchParams.get('xcod');
+        e.indexOf('?') !== -1 &&
+          (t = `&sck=${a}|${n}|${o}|${m}|${c}&xcod=${w}`),
+          console.log(t);
+      }
+      return t;
     }
+    !(function () {
+      const t = new URLSearchParams(window.location.search);
+      t.toString() &&
+        document.querySelectorAll('a').forEach((e) => {
+          e.href.indexOf('?') === -1
+            ? (e.href += `?${t.toString()}${getParams()}`)
+            : (e.href += `&${t.toString()}${getParams()}`);
+        });
+    })();
+  }
+
+  if (document.readyState === 'complete') {
+    work();
+  } else {
+    window.addEventListener('load', work);
+  }
 </script>
 
     <!-- Título da Página -->
