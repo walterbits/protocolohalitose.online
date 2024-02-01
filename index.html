@@ -47,35 +47,55 @@
 </script>
 -->
 
-<!-- UTMIFY -->
+<!-- UTMIFY SCRIPT DE UTM -->
+
     <script>
-  function work() {
-    function getParams() {
-      let t = '';
-      const e = window.top.location.href;
-      const r = new URL(e);
-      if (r != null) {
-        const w = r.searchParams.get("xcod");
-        e.indexOf("?") !== -1 && (t = `&sck=${w}&xcod=${w}`),
-          console.log(t);
-      }
-      return t;
+  function getExtraParams() {
+    let t = "";
+    const e = window.top.location.href;
+    const r = new URL(e);
+    if (r != null) {
+      const w = r.searchParams.get("xcod");
+      e.indexOf("?") !== -1 && (t = `&sck=${w}&xcod=${w}`);
     }
-    !(function () {
-      const t = new URLSearchParams(window.location.search);
-      t.toString() &&
-        document.querySelectorAll('a').forEach((e) => {
-          e.href.indexOf('?') === -1
-            ? (e.href += `?${t.toString()}${getParams()}`)
-            : (e.href += `&${t.toString()}${getParams()}`);
-        });
-    })();
+    return t;
   }
 
-  if (document.readyState === 'complete') {
+  function getRawQueryParams() {
+    return new URLSearchParams(window.location.search).toString();
+  }
+
+  function work() {
+    function rebuildLinks() {
+      !(function () {
+        const t = new URLSearchParams(window.location.search);
+        t.toString() &&
+          document.querySelectorAll("a").forEach((e) => {
+            e.href.indexOf("?") === -1
+              ? (e.href += `?${t.toString()}${getExtraParams()}`)
+              : (e.href += `&${t.toString()}${getExtraParams()}`);
+          });
+      })();
+    }
+
+    function configWindowOpen() {
+      const saveOpen = window.open;
+      window.open = function (url, windowName, parms) {
+        url = url.indexOf("?") === -1 ? url + "?" : url + "&";
+        url += getRawQueryParams() + getExtraParams();
+
+        saveOpen(url, windowName || "", parms || "");
+      };
+    }
+
+    rebuildLinks();
+    configWindowOpen();
+  }
+
+  if (document.readyState === "complete") {
     work();
   } else {
-    window.addEventListener('load', work);
+    window.addEventListener("load", work);
   }
 </script>
 
