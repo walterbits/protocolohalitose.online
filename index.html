@@ -106,6 +106,33 @@ src="https://www.facebook.com/tr?id=853072092791218&ev=PageView&noscript=1"
             <!-- IMAGEN DA Headline -->
  <img class="img-fluid" src="./assets/img/1.png">
 <p></p>
+
+<script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://www.radardosucesso.com.br/pvback-perfect97/?src=pv1';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
+            
             <!--============================================================ CÓDIGO DA VSL ==========================================================================================-->
 
             <div id="vid_65eff05926c2190008e241f1" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_65eff05926c2190008e241f1" src="https://images.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/players/65eff05926c2190008e241f1/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_65eff05926c2190008e241f1" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_65eff05926c2190008e241f1">var s=document.createElement("script");s.src="https://scripts.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/players/65eff05926c2190008e241f1/player.js",s.async=!0,document.head.appendChild(s);</script>
