@@ -23,7 +23,7 @@
   
   function updateViewerCount() {
     document.getElementById("viewer-count").innerHTML =
-      "Assista até o final, essa apresentação sairá do ar no dia " + date.toLocaleDateString() + ".";
+      "Devido ao alto número de acessos, ficará disponível somente até " + date.toLocaleDateString() + ".";
   }
   
   // Update the viewer count every second
@@ -114,6 +114,8 @@ src="https://www.facebook.com/tr?id=853072092791218&ev=PageView&noscript=1"
             <p></p>
 
             <!-- IMAGEN DA Headline -->
+
+
  <img class="img-fluid" src="./assets/img/1.png">
 <p></p>
 
@@ -176,16 +178,29 @@ src="https://www.facebook.com/tr?id=853072092791218&ev=PageView&noscript=1"
   updateBuyerCount();
 </script>
 
+<style>
+.media-logos {
+            display: flex;
+            justify-content: center;
+            gap: 50px; /* Espaçamento entre as imagens */
+            flex-wrap: wrap;
+</style>
+<div id="message" style="text-align: center; margin-top: 40px;"></div>
 
-            
+<div class="media-container">
+        <h1>ESTAMOS NA MÍDIA</h1>
 
-            <!-- Botão 1 --
-            <div id="cta1" class="mt-4 d-none">
-              <a href="https://pay.kiwify.com.br" class="a-btn" style="text-decoration: none;">
-                <span class="span-btn">QUERO OBTER ACESSO!</span>
-                <span class="span-btn2">(atenção: vagas limitadas)</span>
-              </a>
-            </div>-->
+        <div id="message" style="text-align: center; margin-top: 30px;"></div>
+        <div class="media-logos">
+            <img src="assets/img/terra.png" alt="Terra">
+            <img src="assets/img/globo.png" alt="O Globo">
+            <img src="assets/img/ig.png" alt="iG">
+            <img src="assets/img/r7.png" alt="R7">
+            <img src="assets/img/valor.png" alt="Valor Econômico">
+            <img src="assets/img/estadao.png" alt="Estadão">
+        </div>
+            <div id="message" style="text-align: center; margin-top: 40px;"></div>
+
           </div>
         </div>
       </div>
@@ -577,27 +592,7 @@ Deixa a boca muito seca no começo, mas realmente as bactérias não sobrevivem,
         <div style="color: white; text-justify: center;">
   <p style="text-align: center; font-weight: lighter;">© 2023 – Todos os direitos reservados. Este site não faz parte ou é endossado pelo Facebook. Facebook é uma marca registrada da Facebook, Inc.</p>
 <p></p>
-<!--
-<div style="color: white; text-justify: center;">
-  <p style="text-align: center; font-weight: lighter;">Os resultados a serem obtidos com a aplicação das técnicas descritas nessa página variam de pessoa para pessoa.</p>
-<p></p>
-<div style="color: white; text-justify: center;">
-  <p style="text-align: center; font-weight: lighter;">Não reivindicamos ou declaramos que ao usar o método, você terá resultados imediatos ou garantidos. Os depoimentos mostrados são de pessoas reais e vão variar com base no seu esforço e no conhecimento adquirido.</p>
-    </footer>
-    -->
-   <!--<script>
-  function userHasVisited() {
-    var hasVisited = localStorage.getItem('visited');
-    if (hasVisited) {
-      document.getElementById("cta1").classList.remove("d-none");
-      document.getElementById("cta2").classList.remove("d-none");
-    } else {
-      setTimeout(() => {document.getElementById("cta1").classList.remove("d-none"); document.getElementById("cta2").classList.remove("d-none")}, 9999735000); // temporização da Call to Action (em milissegundos)
-      localStorage.setItem('visited', 'true');
-    }
-  }
-  userHasVisited();
-</script>-->
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
